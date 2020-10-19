@@ -12,12 +12,12 @@ var registerGanancia=[]int{}
 
 
 type paquete struct {
-	idPaquete string
-	tipo string
-	valor int
-	seguimiento int
-	intentos int
-	estado string
+	IDPaquete string
+	Tipo string
+	Valor int
+	Seguimiento int
+	Intentos int
+	Estado string
 }
 type pedido struct{
 	idPaquete string
@@ -102,12 +102,13 @@ func main(){
 			var paqueteCalcular paquete
 			var entregado bool
 			err=json.Unmarshal(d.Body,&paqueteCalcular)
-			if paqueteCalcular.estado=="Recibido"{
+			fmt.Print(paqueteCalcular)
+			if paqueteCalcular.Estado=="Recibido"{
 				entregado=true
 			}else{
 				entregado=false
 			}
-			nuevoPedido := newPedido(paqueteCalcular.idPaquete,paqueteCalcular.intentos,entregado,paqueteCalcular.tipo,paqueteCalcular.valor)
+			nuevoPedido := newPedido(paqueteCalcular.IDPaquete,paqueteCalcular.Intentos,entregado,paqueteCalcular.Tipo,paqueteCalcular.Valor)
 			registerPedido=append(registerPedido,nuevoPedido)
 			ganancia:=calcularGanancia(nuevoPedido)
 			registerGanancia=append(registerGanancia,ganancia)
