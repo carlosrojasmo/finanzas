@@ -102,7 +102,7 @@ func main(){
 			var paqueteCalcular paquete
 			var entregado bool
 			err=json.Unmarshal(d.Body,&paqueteCalcular)
-			fmt.Print(paqueteCalcular)
+			fmt.Print("Paquete a calcular ganancia: ", paqueteCalcular.IDPaquete)
 			if paqueteCalcular.Estado=="Recibido"{
 				entregado=true
 			}else{
@@ -113,7 +113,7 @@ func main(){
 			ganancia:=calcularGanancia(nuevoPedido)
 			registerGanancia=append(registerGanancia,ganancia)
 			sum:=sumSlices(registerGanancia)
-			fmt.Println("la ganancia es: ",sum )
+			fmt.Println("la ganancia acumulada es: ",sum )
 		}
 	  }()
 	  
