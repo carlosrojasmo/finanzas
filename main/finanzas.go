@@ -113,7 +113,7 @@ func main(){
 			ganancia:=calcularGanancia(nuevoPedido)
 			registerGanancia=append(registerGanancia,ganancia)
 			sum:=sumSlices(registerGanancia)
-			fmt.Println("la ganancia acumulada es: ",sum )
+			fmt.Println(", la ganancia acumulada es: ",sum )
 		}
 	  }()
 	  
